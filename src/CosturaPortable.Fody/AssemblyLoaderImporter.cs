@@ -96,7 +96,7 @@ public partial class ModuleWeaver
             return;
         }
 
-        using (var resourceStream = GetType().Assembly.GetManifestResourceStream($"Costura.src.{file}.cs"))
+        using (var resourceStream = GetType().Assembly.GetManifestResourceStream($"CosturaPortable.Fody.src.{file}.cs"))
         {
             if (resourceStream is not null)
             {

@@ -29,6 +29,7 @@ internal static class Common
 
         // Should this be trace?
         Debug.WriteLine("=== COSTURA === " + string.Format(format, args));
+        Console.WriteLine("=== COSTURA === " + string.Format(format, args));
     }
 
     private static void CopyTo(Stream source, Stream destination)
@@ -360,19 +361,13 @@ internal static class Common
         return $"{os}-{Enum.GetName(typeof(Architecture), processorArchitecture).ToLowerInvariant()}";
     }
 
-    private static int PathSet = 0;
-    private static void AddEnvironmentPaths(params IEnumerable<string> paths)
+    private static void AddEnvironmentPaths(string newpath)
     {
-        if (Interlocked.Exchange(ref PathSet, 1) == 0)
-        {
-            var path = new[] { Environment.GetEnvironmentVariable("PATH") ?? string.Empty };
+        var path = new[] { Environment.GetEnvironmentVariable("PATH") ?? string.Empty };
 
-            paths = paths.Where(p => !string.IsNullOrEmpty(p));
+        newpath = string.Join(Path.PathSeparator.ToString(), path.Concat(new string[] { newpath }));
 
-            string newPath = string.Join(Path.PathSeparator.ToString(), path.Concat(paths));
-
-            Environment.SetEnvironmentVariable("PATH", newPath);
-        }
+        Environment.SetEnvironmentVariable("PATH", newpath);
     }
 
 }

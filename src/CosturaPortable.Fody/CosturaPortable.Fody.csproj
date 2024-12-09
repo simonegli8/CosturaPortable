@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <AssemblyName>CosturaPortable.Fody</AssemblyName>
-    <RootNamespace>Costura.Fody</RootNamespace>
+    <RootNamespace>CosturaPortable.Fody</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <DisableFody>true</DisableFody>
     <Configurations>Debug;Release;Test</Configurations>
@@ -57,7 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Costura.Fody.xcf" />
+    <None Remove="CosturaPortable.Fody.xcf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,7 +73,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="FodyHelpers" Version="6.8.2" />
+    <PackageReference Include="FodyHelpers" Version="6.9.1" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" GeneratePathProperty="true" />
   </ItemGroup>
   <ItemGroup>
@@ -84,7 +84,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props" Condition="Exists('$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props')" />
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <SourceRoot Include="C:\GitHub\Costura\" RepositoryUrl="https://github.com/simonegli8/CosturaPortable" SourceControl="git" RevisionId="d7734a717d9b5a738cb24410b487ece964c94fac" />

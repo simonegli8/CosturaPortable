@@ -5,6 +5,7 @@
         Condition="$(MSBuildRuntimeType) != 'Core'">netclassicweaver</WeaverRuntimeToken>
     <WeaverRuntimeToken
         Condition="$(MSBuildRuntimeType) == 'Core'">netstandardweaver</WeaverRuntimeToken>
+    <DefineConstants>$(DefineConstants);Costura</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

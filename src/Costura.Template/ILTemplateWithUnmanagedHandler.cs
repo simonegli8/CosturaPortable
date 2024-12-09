@@ -61,7 +61,10 @@ internal static class ILTemplateWithUnmanagedHandler
 
         // Preload
         var unmanagedAssemblies = GetUnmanagedAssemblies();
-        Common.PreloadUnmanagedLibraries(md5Hash, tempBasePath, unmanagedAssemblies, checksums);
+        if (unmanagedAssemblies.Count > 0)
+        {
+            Common.PreloadUnmanagedLibraries(md5Hash, tempBasePath, unmanagedAssemblies, checksums);
+        }
 
         if (subscribe)
         {
@@ -150,12 +153,17 @@ internal static class ILTemplateWithUnmanagedHandler
                     //throw new NotSupportedException($"Architecture '{processorArchitecture}' not supported");
                     throw new NotSupportedException(string.Format("Architecture '{0}' not supported", processorArchitecture));
             }
-        }
+        } else return new List<string>();
 
-        throw new NotSupportedException("Platform is not (yet) supported");
+        // throw new NotSupportedException("Platform is not (yet) supported");
 #else
         // Only support Windows
-        return IntPtr.Size == 8 ? preloadWinX64List : preloadWinX86List;
+        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            return IntPtr.Size == 8 ? preloadWinX64List : preloadWinX86List;
+        } else {
+            return new List<string>();
+        }
 #endif
     }
 }
