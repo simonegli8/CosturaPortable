@@ -1,25 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
     <AssemblyName>Costura.Template</AssemblyName>
     <RootNamespace>Costura.Template</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageVersion>3.0.0-alpha0001</PackageVersion>
+    <PackageVersion>6.0.0-alpha0397</PackageVersion>
     <Description></Description>
     <PackageTags></PackageTags>
     <DisableFody>true</DisableFody>
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-
   <PropertyGroup>
     <!-- SonarQube requires a project guid -->
     <ProjectGuid>CD9AEBAA-78F4-4A78-BF06-0CB7D84D83E8</ProjectGuid>
+    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Fody" Version="6.8.2" PrivateAssets="none" />
   </ItemGroup>
-
   <Import Project="$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props" Condition="Exists('$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props')" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <SourceRoot Include="C:\GitHub\Costura\" RepositoryUrl="https://github.com/Costura.Fody/Costura.Fody" SourceControl="git" RevisionId="d7734a717d9b5a738cb24410b487ece964c94fac" />
+  </ItemGroup>
 </Project>

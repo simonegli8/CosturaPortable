@@ -1,13 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>Costura</AssemblyName>
     <RootNamespace>Costura</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageVersion>3.0.0-alpha0001</PackageVersion>
+    <PackageVersion>6.0.0</PackageVersion>
     <Description>Fody add-in for embedding references as resources.</Description>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <PackageId>Costura.Fody</PackageId>
+    <PackageId>CosturaPortable.Fody</PackageId>
+    <PackageIdOriginal>Costura.Fody</PackageIdOriginal>
     <PackageTags>ILMerge, ILWeaving, Embed, Resource, Fody, Cecil</PackageTags>
     <DisableFody>true</DisableFody>
     <SignAssembly>True</SignAssembly>
@@ -15,37 +17,33 @@
     <NoWarn>$(NoWarn);NU5100</NoWarn>
     <NoError>$(NoError);NU5100</NoError>
   </PropertyGroup>
-
   <PropertyGroup>
     <!-- SonarQube requires a project guid -->
     <ProjectGuid>2B508691-68E6-4AE6-8F8D-1B78F7E65F80</ProjectGuid>
   </PropertyGroup>
-  
   <ItemGroup>
     <PackageReference Include="Fody" Version="6.8.2" PrivateAssets="none" />
   </ItemGroup>
-
   <ItemGroup>
     <!-- this project targets netstandard2.0 (unnecessarily) and has the below ref to work around this bug https://github.com/Microsoft/msbuild/issues/2661 -->
     <ProjectReference Include="..\$(PackageId)\$(PackageId).csproj" PrivateAssets="All" Condition="$(TargetFramework)=='fake'" />
   </ItemGroup>
-  
   <Import Project="$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props" Condition="Exists('$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props')" />
-
   <!--
   Note: the code below comes from https://raw.githubusercontent.com/Fody/Fody/master/FodyPackaging/build/FodyPackaging.targets
   but is needed because we use 'Catel.Fody.Attributes' instead of 'Catel' as attributes project name
   -->
-  
   <!-- Required *after* import of explicit properties -->
   <PropertyGroup>
     <!-- The properties below come from the FodyPackaging.props, see explanation at end of file -->
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);IncludeFodyFiles</TargetsForTfmSpecificContentInPackage>
     <DisableFody>true</DisableFody>
-    <WeaverDirPath>$(OverridableOutputPath)\..\$(PackageId)</WeaverDirPath>
+    <WeaverDirPath>$(OverridableOutputPath)..\$(PackageId)</WeaverDirPath>
     <Configurations>Debug;Release;Test</Configurations>
+    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
-  
   <Target Name="IncludeFodyFiles">
     <ItemGroup>
       <NetClassicFilesToInclude Include="$(WeaverDirPath)\net4*\$(PackageId).dll" />
@@ -59,17 +57,20 @@
     <CreateItem Include="@(NetClassicFilesToInclude)" AdditionalMetadata="PackagePath=netclassicweaver">
       <Output TaskParameter="Include" ItemName="TfmSpecificPackageFile" />
     </CreateItem>
-    
     <CreateItem Include="@(NetStandardFilesToInclude)" AdditionalMetadata="PackagePath=netstandardweaver">
       <Output TaskParameter="Include" ItemName="TfmSpecificPackageFile" />
     </CreateItem>
-    
     <CreateItem Include="$(MSBuildThisFileDirectory)..\$(PackageId)\$(PackageId).props" AdditionalMetadata="PackagePath=build">
       <Output TaskParameter="Include" ItemName="TfmSpecificPackageFile" />
     </CreateItem>
-    
     <CreateItem Include="$(MSBuildThisFileDirectory)..\$(PackageId)\$(PackageId).targets" AdditionalMetadata="PackagePath=build">
       <Output TaskParameter="Include" ItemName="TfmSpecificPackageFile" />
     </CreateItem>
   </Target>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <SourceRoot Include="C:\GitHub\Costura\" RepositoryUrl="https://github.com/Costura.Fody/Costura.Fody" SourceControl="git" RevisionId="d7734a717d9b5a738cb24410b487ece964c94fac" />
+  </ItemGroup>
 </Project>
