@@ -5,7 +5,7 @@
     <AssemblyName>Costura</AssemblyName>
     <RootNamespace>Costura</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageVersion>6.0.1</PackageVersion>
+    <PackageVersion>6.0.2</PackageVersion>
     <Description>Fody add-in for embedding references as resources.</Description>
     <DevelopmentDependency>true</DevelopmentDependency>
     <PackageId>PortableCostura.Fody</PackageId>
