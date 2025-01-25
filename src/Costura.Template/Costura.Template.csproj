@@ -5,7 +5,7 @@
     <AssemblyName>Costura.Template</AssemblyName>
     <RootNamespace>Costura.Template</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageVersion>6.0.2</PackageVersion>
+    <PackageVersion>6.0.3</PackageVersion>
     <Description></Description>
     <PackageTags></PackageTags>
     <DisableFody>true</DisableFody>

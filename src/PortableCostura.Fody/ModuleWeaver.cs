@@ -4,14 +4,16 @@ using Fody;
 
 public sealed partial class ModuleWeaver : BaseModuleWeaver
 {
+    const bool Debug = false;
+
     public override void Execute()
     {
-//#if DEBUG
-//        if (!Debugger.IsAttached)
-//        {
-//            Debugger.Launch();
-//        }
-//#endif
+#if DEBUG
+        if (Debug && !Debugger.IsAttached)
+        {
+            Debugger.Launch();
+        }
+#endif
 
         var config = new Configuration(Config);
 
