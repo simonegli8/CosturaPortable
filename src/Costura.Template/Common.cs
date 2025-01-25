@@ -53,7 +53,7 @@ internal static class Common
     private static byte[] ReadStream(Stream stream)
     {
         var data = new byte[stream.Length];
-        stream.Read(data, 0, data.Length);
+        var count = stream.Read(data, 0, data.Length);
         return data;
     }
 

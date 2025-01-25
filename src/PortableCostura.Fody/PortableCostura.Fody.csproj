@@ -2,17 +2,17 @@
 <Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
-    <AssemblyName>CosturaPortable.Fody</AssemblyName>
-    <RootNamespace>CosturaPortable.Fody</RootNamespace>
+    <AssemblyName>PortableCostura.Fody</AssemblyName>
+    <RootNamespace>PortableCostura.Fody</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <DisableFody>true</DisableFody>
     <Configurations>Debug;Release;Test</Configurations>
-    <PackageVersion>6.0.0</PackageVersion>
+    <PackageVersion>6.0.1</PackageVersion>
     <PackageId>PortableCostura.Fody</PackageId>
   </PropertyGroup>
   <PropertyGroup>
     <!-- SonarQube requires a project guid -->
-    <ProjectGuid>{729B7265-C0B9-4854-BD3E-93DCB2D18802}</ProjectGuid>
+    <ProjectGuid>E5622B74-B6C6-46A5-9207-0872533E6C2F</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Test|net472|AnyCPU'">
     <Optimize>false</Optimize>
@@ -55,23 +55,20 @@
       <InProject>false</InProject>
     </EmbeddedResource>
   </ItemGroup>
-
   <ItemGroup>
-    <None Remove="CosturaPortable.Fody.xcf" />
+    <None Remove="Costura.Fody.xcf" />
   </ItemGroup>
-
   <ItemGroup>
-    <Content Include="CosturaPortable.Fody.props">
+    <Content Include="Costura.Fody.props">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CosturaPortable.Fody.targets">
+    <Content Include="Costura.Fody.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CosturaPortable.Fody.xcf">
+    <Content Include="Costura.Fody.xcf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  
   <ItemGroup>
     <PackageReference Include="FodyHelpers" Version="6.9.1" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" GeneratePathProperty="true" />
@@ -84,9 +81,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props" Condition="Exists('$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props')" />
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <SourceRoot Include="C:\GitHub\Costura\" RepositoryUrl="https://github.com/simonegli8/CosturaPortable" SourceControl="git" RevisionId="d7734a717d9b5a738cb24410b487ece964c94fac" />
+    <SourceRoot Include="C:\GitHub\CosturaOrigin\" RepositoryUrl="https://github.com/Costura.Fody/Costura.Fody" SourceControl="git" RevisionId="622fa3a8913057f0a96d88622e9aa61e9dcc52a8" />
   </ItemGroup>
 </Project>

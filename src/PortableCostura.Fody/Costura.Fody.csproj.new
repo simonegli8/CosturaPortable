@@ -2,8 +2,8 @@
 <Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
-    <AssemblyName>CosturaPortable.Fody</AssemblyName>
-    <RootNamespace>CosturaPortable.Fody</RootNamespace>
+    <AssemblyName>PortableCostura.Fody</AssemblyName>
+    <RootNamespace>PortableCostura.Fody</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <DisableFody>true</DisableFody>
     <Configurations>Debug;Release;Test</Configurations>
@@ -55,23 +55,20 @@
       <InProject>false</InProject>
     </EmbeddedResource>
   </ItemGroup>
-
   <ItemGroup>
-    <None Remove="CosturaPortable.Fody.xcf" />
+    <None Remove="PortableCostura.Fody.xcf" />
   </ItemGroup>
-
   <ItemGroup>
-    <Content Include="CosturaPortable.Fody.props">
+    <Content Include="PortableCostura.Fody.props">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CosturaPortable.Fody.targets">
+    <Content Include="PortableCostura.Fody.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CosturaPortable.Fody.xcf">
+    <Content Include="PortableCostura.Fody.xcf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  
   <ItemGroup>
     <PackageReference Include="FodyHelpers" Version="6.9.1" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" GeneratePathProperty="true" />

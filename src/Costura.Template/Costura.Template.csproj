@@ -5,7 +5,7 @@
     <AssemblyName>Costura.Template</AssemblyName>
     <RootNamespace>Costura.Template</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageVersion>6.0.0-alpha0397</PackageVersion>
+    <PackageVersion>6.0.1</PackageVersion>
     <Description></Description>
     <PackageTags></PackageTags>
     <DisableFody>true</DisableFody>
@@ -15,17 +15,15 @@
   <PropertyGroup>
     <!-- SonarQube requires a project guid -->
     <ProjectGuid>CD9AEBAA-78F4-4A78-BF06-0CB7D84D83E8</ProjectGuid>
-    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
-    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fody" Version="6.8.2" PrivateAssets="none" />
+    <PackageReference Include="Fody" Version="6.9.1" PrivateAssets="none" />
   </ItemGroup>
   <Import Project="$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props" Condition="Exists('$(MSBuildProjectDirectory)\..\Directory.build.shared.explicit.props')" />
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <SourceRoot Include="C:\GitHub\Costura\" RepositoryUrl="https://github.com/simonegli8/CosturaPortable" SourceControl="git" RevisionId="d7734a717d9b5a738cb24410b487ece964c94fac" />
+    <SourceRoot Include="C:\GitHub\CosturaOrigin\" RepositoryUrl="https://github.com/Costura.Fody/Costura.Fody" SourceControl="git" RevisionId="622fa3a8913057f0a96d88622e9aa61e9dcc52a8" />
   </ItemGroup>
 </Project>
